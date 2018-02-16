@@ -118,11 +118,8 @@ def people_who_can_do_job(people,job):
 
     '''Returns list of people who can do defined job'''
     
-    people_who_can_do_job = []
-    for person in people:
-        can_do = can_do_job(job, person)
-        if can_do == True:
-            people_who_can_do_job.append(person)
+    people_who_can_do_job = [person for person in people if can_do_job(job, person)]
+
 
     return people_who_can_do_job
     
