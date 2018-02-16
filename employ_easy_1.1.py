@@ -308,9 +308,6 @@ def are_jobs_filled():
         return False
 
         
-        
-
-
 def find_fit():
     i=0
     global total_needed
@@ -319,20 +316,14 @@ def find_fit():
     for job in people_needed:
         total_needed += people_needed[job]
 
-   
-    
-    
     if len(all_people) < total_needed:
         raise_error('Not enough people to meet this request')
         return False
 
-    while i < 100:
-        
-        random.shuffle(all_people)
-        i+=1
-        people_doing_job, people_on_job, available_people, person_and_job = fill()
-        i+=100
-        
+    random.shuffle(all_people)
+
+    people_doing_job, people_on_job, available_people, person_and_job = fill()
+  
     if are_jobs_filled() == True:
         return people_doing_job, people_on_job, available_people, person_and_job
     else:
@@ -341,8 +332,6 @@ def find_fit():
 
 
 def assign_jobs(employees, needed, no_of_schedules):
-
-    
     
     global person_and_job
     global last_jobs
@@ -352,11 +341,9 @@ def assign_jobs(employees, needed, no_of_schedules):
 
     all_combinations = get_all_possible_combinations(list_of_jobs)
 
-    
     created = 0
     
     all_people = list(employees.values())
-    
     
     person_and_job_dict = {}
 
@@ -367,7 +354,6 @@ def assign_jobs(employees, needed, no_of_schedules):
     while created < no_of_schedules:
         
         person_and_job = {}
-        
         
         try:
             last_jobs = open('lastjob.pickle','rb')
@@ -406,9 +392,7 @@ def assign_jobs(employees, needed, no_of_schedules):
                 k+=1
             j+=1
 
-
         created+=1
-
 
         for person in person_and_job:
             last_jobs[person.initials] = person_and_job[person]
@@ -422,15 +406,12 @@ def assign_jobs(employees, needed, no_of_schedules):
             person_and_job_dict[person].append(last_jobs[person.initials])
 
         
-        
-
     new_dict = {}
     temp_list = []
 
     for person in person_and_job_dict:
         temp_list.append(person.initials)
 
-    
     temp_list = sorted(temp_list)
 
 
@@ -439,9 +420,6 @@ def assign_jobs(employees, needed, no_of_schedules):
             if initials == person.initials:
                 new_dict[initials] = person_and_job_dict[person]
 
-    
-
-    
 
     try:
         os.remove('Schedule.csv')
@@ -460,13 +438,7 @@ def assign_jobs(employees, needed, no_of_schedules):
 
 
 
-
-
-
-
-
 #--------------------------------------GUI Section--------------------------------------#
-
 
 
 def delete_person(person):
@@ -495,6 +467,7 @@ def really_delete(person):
 
     no = Button(delete_window,text='No',command= lambda: delete_window.destroy())
     no.grid(row=1,column=2,columnspan=2,sticky='nsew')
+    
     
 def new_employee(name, initials):
     
@@ -709,7 +682,7 @@ def create_main():
 #*--------------------^^-----People Needed and generate job function---^^----------------------------------*#
 
 
-#*-----------------------------------------------------------------------------------------------------*#
+
 
     sort_by_name_btn = Button(root,text='Name',command=sort_by_name)
     sort_by_name_btn.grid(row=1, column=2, sticky='nsew')
@@ -749,8 +722,6 @@ def create_main():
     add_btn = Button(root,image=plus,
                     command = add_employee_dialog)
     add_btn.grid(row=len(employee_buttons)+2, column=2,sticky='nsew')
-
-    
 
     
     root.mainloop()
