@@ -1,1 +1,1 @@
-You must run the initiation file in order to have a base of employees and jobs to begin with. Then simply run employ_easy.
+You must run the initiation file in order to have a base of employees and jobs to begin with. Also, must have jpg files and employees.pickle file in the same directory as employ_easy. Then simply run employ_easy.
