@@ -16,6 +16,7 @@ Optional Step:
 
 
 GUI Reference:
+
 Click on a worker's job to change their capabilities:
 
 - Green   - Worker can do job / is a candidate to be assigned to this job
