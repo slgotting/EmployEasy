@@ -16,9 +16,8 @@ Optional Step:
 
 
 GUI Reference:
-
 Click on a worker's job to change their capabilities:
 
-Green   - Worker can do job / is a candidate to be assigned to this job
-Yellow  - Worker is training ( will not be automatically assigned to job; requires manual review )
-Red     - Worker cannot do job
+- Green   - Worker can do job / is a candidate to be assigned to this job
+- Yellow  - Worker is training ( will not be automatically assigned to job; requires manual review )
+- Red     - Worker cannot do job
